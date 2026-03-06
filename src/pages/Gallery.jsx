@@ -5,37 +5,37 @@ import { useState } from 'react'
 const photos = [
   {
     id: 1,
-    url: '/8marta/public/images/leto.jpg', // положи фото в public/images/photo1.jpg
+    url: '/8marta/images/leto.jpg', // положи фото в public/images/photo1.jpg
     caption: 'Соска у стенки',
     date: '19.04.2025'
   },
   {
     id: 2,
-    url: '/8marta/public/images/bona.jpg',
+    url: '/8marta/images/bona.jpg',
     caption: 'Твоя улыбка',
     date: '30.12.2025'
   },
   {
     id: 3,
-    url: '/8marta/public/images/biliard.jpg',
+    url: '/8marta/images/biliard.jpg',
     caption: 'Мастер кия🎱',
     date: '15.02.2026'
   },
   {
     id: 4,
-    url: '/8marta/public/images/lift.jpg',
+    url: '/8marta/images/lift.jpg',
     caption: 'Как же ты красива',
     date: '12.07.2023'
   },
   {
     id: 5,
-    url: '/8marta/public/images/together.jpg',
+    url: '/8marta/images/together.jpg',
     caption: 'Я люблю тебя',
     date: '13.05.2023'
   },
   {
     id: 6,
-    url: '/8marta/public/images/rand.jpg',
+    url: '/8marta/images/rand.jpg',
     caption: 'Красива везде',
     date: '06.12.2025'
   }

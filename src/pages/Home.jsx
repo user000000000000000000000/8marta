@@ -67,7 +67,7 @@ const Home = () => {
         }}
       >
         <img 
-          src="/8marta/public/images/ava.jpg" 
+          src="/8marta/images/ava.jpg" 
           alt="Фото"
           style={{ 
             width: '100%', 
