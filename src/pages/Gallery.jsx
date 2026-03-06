@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-// 👇 ЗДЕСЬ ТЫ БУДЕШЬ ДОБАВЛЯТЬ СВОИ ФОТО
 const photos = [
   {
     id: 1,
-    url: '/8marta/images/leto.jpg', // положи фото в public/images/photo1.jpg
+    url: '/8marta/images/leto.jpg',
     caption: 'Соска у стенки',
     date: '19.04.2025'
   },
@@ -83,25 +82,22 @@ const Gallery = () => {
               width: '100%', 
               height: '300px', 
               background: '#fce7f3',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '3rem',
-              color: '#f9a8d4'
+              position: 'relative'
             }}>
-              {/* Здесь будет фото, если его нет — покажет иконку */}
               <img 
                 src={photo.url} 
                 alt={photo.caption}
                 style={{ 
                   width: '100%', 
                   height: '100%', 
-                  objectFit: 'cover',
-                  display: 'block'
+                  objectFit: 'cover'
                 }}
                 onError={(e) => {
-                  e.target.style.display = 'none'
-                  e.target.parentElement.innerHTML = '📸'
+                  e.target.style.display = 'none';
+                  const parent = e.target.parentElement;
+                  if (parent) {
+                    parent.innerHTML = '<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#f9a8d4">📸</div>';
+                  }
                 }}
               />
             </div>
@@ -147,21 +143,32 @@ const Gallery = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={selectedPhoto.url} 
-              alt={selectedPhoto.caption}
-              style={{ 
-                width: '100%', 
-                height: 'auto', 
-                maxHeight: '70vh', 
-                objectFit: 'contain',
-                background: '#fce7f3'
-              }}
-              onError={(e) => {
-                e.target.style.display = 'none'
-                e.target.parentElement.innerHTML = '<div style="padding:50px;font-size:3rem">📸</div>'
-              }}
-            />
+            <div style={{ 
+              maxHeight: '70vh', 
+              overflow: 'hidden',
+              background: '#fce7f3',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <img 
+                src={selectedPhoto.url} 
+                alt={selectedPhoto.caption}
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  maxHeight: '70vh', 
+                  objectFit: 'contain'
+                }}
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  const parent = e.target.parentElement;
+                  if (parent) {
+                    parent.innerHTML = '<div style="padding:50px;font-size:3rem">📸</div>';
+                  }
+                }}
+              />
+            </div>
             <div style={{ padding: '20px', textAlign: 'center' }}>
               <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#be185d' }}>
                 {selectedPhoto.caption}
