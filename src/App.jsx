@@ -10,7 +10,7 @@ import './App.css'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/8marta">
       <div className="app">
         <HeartBackground />
         <nav className="nav">
